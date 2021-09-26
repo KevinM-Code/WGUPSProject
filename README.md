@@ -40,6 +40,6 @@ Assumptions:
 1. Make sure Python is installed. If not, on a **Windows 10** machine download it [here](https://www.python.org/downloads/) and make sure to check
 - [x] `Add Python X.X to PATH` when installing.
 
-2. `git clone link`
+2. `git clone https://github.com/KevinM-Code/WGUPSProject.git`
 3. `cd WGUPSProject/src`
 4. `python Postmaster.py`
