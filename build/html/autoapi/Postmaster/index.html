@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Postmaster &#8212; WGUPS Project 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Postmaster">
+<span id="postmaster"></span><h1><a class="reference internal" href="#module-Postmaster" title="Postmaster"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Postmaster</span></code></a><a class="headerlink" href="#module-Postmaster" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="Postmaster.FIRST_DEPARTURE_TIME">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">FIRST_DEPARTURE_TIME</code><em class="property"> = 8:00:00</em><a class="headerlink" href="#Postmaster.FIRST_DEPARTURE_TIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Postmaster.SECOND_DEPARTURE_TIME">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">SECOND_DEPARTURE_TIME</code><em class="property"> = 9:15:00</em><a class="headerlink" href="#Postmaster.SECOND_DEPARTURE_TIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Postmaster.THIRD_DEPARTURE_TIME">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">THIRD_DEPARTURE_TIME</code><em class="property"> = 11:00:00</em><a class="headerlink" href="#Postmaster.THIRD_DEPARTURE_TIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Postmaster.package_count">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">package_count</code><em class="property"> = 40</em><a class="headerlink" href="#Postmaster.package_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Postmaster.pack">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">pack</code><a class="headerlink" href="#Postmaster.pack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Postmaster.time_master">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">time_master</code><a class="headerlink" href="#Postmaster.time_master" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.main">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the <code class="xref py py-mod docutils literal notranslate"><span class="pre">void</span></code> <a class="reference internal" href="#Postmaster.main" title="Postmaster.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">main()</span></code></a> method. This drives the entire application. Each truck and the contents of the truck
+are run through the application. This allows easy scaling for more trucks, just add a line a code with the required parameters.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.run_route">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">run_route</code><span class="sig-paren">(</span><em class="sig-param">departure_time</em>, <em class="sig-param">pack</em>, <em class="sig-param">route</em>, <em class="sig-param">truck</em>, <em class="sig-param">starting_location</em><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.run_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method calls all the appropriate methods in order to get mileage, time of delivery and best route.</p>
+<p>Methods used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../Packer/index.html#Packer.Packer.add_departure_timestamp_and_location_index_to_package_info" title="Packer.Packer.add_departure_timestamp_and_location_index_to_package_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">Packer.Packer.add_departure_timestamp_and_location_index_to_package_info()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../Router/index.html#Router.Router.get_best_route" title="Router.Router.get_best_route"><code class="xref py py-func docutils literal notranslate"><span class="pre">Router.Router.get_best_route()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../Packer/index.html#Packer.Packer.calc_mileage_time_and_update_master_package_list" title="Packer.Packer.calc_mileage_time_and_update_master_package_list"><code class="xref py py-func docutils literal notranslate"><span class="pre">Packer.Packer.calc_mileage_time_and_update_master_package_list()</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>departure_time</strong> (<em>string</em>) – the military time of departure e.g. <code class="xref py py-mod docutils literal notranslate"><span class="pre">08:00:00</span></code></p></li>
+<li><p><strong>pack</strong> – an instance of the class <a class="reference internal" href="../Packer/index.html#module-Packer" title="Packer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Packer</span></code></a></p></li>
+<li><p><strong>route</strong> – an instance of the class <a class="reference internal" href="../Router/index.html#module-Router" title="Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a></p></li>
+<li><p><strong>truck</strong> (<em>list</em>) – all the information from each of the packages on the truck</p></li>
+<li><p><strong>starting_location</strong> (<em>int</em>) – the index of the starting location</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The truck total milage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.greeting_and_search_type">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">greeting_and_search_type</code><span class="sig-paren">(</span><em class="sig-param">total_mileage</em><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.greeting_and_search_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method displays the total distance of all the routes, the user interface greeting and allows the user to select
+from 3 options:</p>
+<p>The selections are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0 – To exit the system</p></li>
+<li><p>1 – to view delivery status of all packages at a particular time</p></li>
+<li><p>2 – to get the status of a particular package</p></li>
+</ul>
+</div></blockquote>
+<p>The user selection is validated and returned.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Time-complexity is O(1).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>total_mileage</strong> (<em>float</em>) – The mileage added together for all the trucks</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The user selection 1, 2, or 3 only</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.exit_or_input_validation">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">exit_or_input_validation</code><span class="sig-paren">(</span><em class="sig-param">user_input</em>, <em class="sig-param">regular_exp</em>, <em class="sig-param">error_message</em>, <em class="sig-param">new_prompt</em><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.exit_or_input_validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a reusable method that validates the user input so there are not any errors or sql injection like user input
+into the software.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Time-complexity is O(1).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_input</strong> (<em>string</em>) – The user entered text</p></li>
+<li><p><strong>regular_exp</strong> (<em>string</em>) – The regular expression that validates the input</p></li>
+<li><p><strong>error_message</strong> (<em>string</em>) – The custom message that is add to “Incorrect, please” …</p></li>
+<li><p><strong>new_prompt</strong> (<em>string</em>) – This can be the same prompt text as the first request for a selection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The validated input</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.get_status_of_all_packages_at_time">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">get_status_of_all_packages_at_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.get_status_of_all_packages_at_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method gets the status of all packages at a particular time.</p>
+<p>The results displayed for each package:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>package ID</p></li>
+<li><p>full delivery address</p></li>
+<li><p>package weight</p></li>
+<li><p>delivery status</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Time-complexity is O(N). The number of packages</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="Postmaster.track_package_by_package_num">
+<code class="sig-prename descclassname">Postmaster.</code><code class="sig-name descname">track_package_by_package_num</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Postmaster.track_package_by_package_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method ask the user for the package number (can also be referred to as the tracking number) and then asks at
+what time during the day they would like to know where the package is. Once the user enters the information
+the results is displayed.</p>
+<p>The results displayed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>package ID</p></li>
+<li><p>full delivery address</p></li>
+<li><p>package weight</p></li>
+<li><p>delivery status</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>void</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Postmaster</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#Postmaster.FIRST_DEPARTURE_TIME">FIRST_DEPARTURE_TIME</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.SECOND_DEPARTURE_TIME">SECOND_DEPARTURE_TIME</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.THIRD_DEPARTURE_TIME">THIRD_DEPARTURE_TIME</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.package_count">package_count</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.pack">pack</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.time_master">time_master</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.main">main</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.run_route">run_route</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.greeting_and_search_type">greeting_and_search_type</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.exit_or_input_validation">exit_or_input_validation</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.get_status_of_all_packages_at_time">get_status_of_all_packages_at_time</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Postmaster.track_package_by_package_num">track_package_by_package_num</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/Postmaster/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Kevin Mock.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  </body>
+</html>

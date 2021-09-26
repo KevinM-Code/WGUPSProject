@@ -1,0 +1,134 @@
+:mod:`Postmaster`
+=================
+
+.. py:module:: Postmaster
+
+
+Module Contents
+---------------
+
+.. data:: FIRST_DEPARTURE_TIME
+   :annotation: = 8:00:00
+
+   
+
+.. data:: SECOND_DEPARTURE_TIME
+   :annotation: = 9:15:00
+
+   
+
+.. data:: THIRD_DEPARTURE_TIME
+   :annotation: = 11:00:00
+
+   
+
+.. data:: package_count
+   :annotation: = 40
+
+   
+
+.. data:: pack
+   
+
+   
+
+.. data:: time_master
+   
+
+   
+
+.. function:: main()
+
+   This is the :mod:`void` :func:`main` method. This drives the entire application. Each truck and the contents of the truck
+   are run through the application. This allows easy scaling for more trucks, just add a line a code with the required parameters.
+
+
+.. function:: run_route(departure_time, pack, route, truck, starting_location)
+
+   This method calls all the appropriate methods in order to get mileage, time of delivery and best route.
+
+   Methods used:
+
+       * :func:`Packer.Packer.add_departure_timestamp_and_location_index_to_package_info`
+       * :func:`Router.Router.get_best_route`
+       * :func:`Packer.Packer.calc_mileage_time_and_update_master_package_list`
+
+   :param departure_time: the military time of departure e.g. :mod:`08:00:00`
+   :type departure_time: string
+   :param pack: an instance of the class :class:`Packer`
+   :param route: an instance of the class :class:`Router`
+   :param list truck: all the information from each of the packages on the truck
+   :param int starting_location: the index of the starting location
+   :return: The truck total milage
+
+
+.. function:: greeting_and_search_type(total_mileage)
+
+   This method displays the total distance of all the routes, the user interface greeting and allows the user to select
+   from 3 options:
+
+   The selections are:
+
+       * 0 -- To exit the system
+       * 1 -- to view delivery status of all packages at a particular time
+       * 2 -- to get the status of a particular package
+
+   The user selection is validated and returned.
+
+   .. note::
+           Time-complexity is O(1).
+
+   :param float total_mileage: The mileage added together for all the trucks
+   :return: The user selection 1, 2, or 3 only
+   :rtype: string
+
+
+.. function:: exit_or_input_validation(user_input, regular_exp, error_message, new_prompt)
+
+   This is a reusable method that validates the user input so there are not any errors or sql injection like user input
+   into the software.
+
+   .. note::
+           Time-complexity is O(1).
+
+   :param string user_input: The user entered text
+   :param string regular_exp: The regular expression that validates the input
+   :param string error_message: The custom message that is add to "Incorrect, please" ...
+   :param string new_prompt: This can be the same prompt text as the first request for a selection
+   :return: The validated input
+   :rtype: string
+
+
+.. function:: get_status_of_all_packages_at_time()
+
+   This method gets the status of all packages at a particular time.
+
+   The results displayed for each package:
+
+       * package ID
+       * full delivery address
+       * package weight
+       * delivery status
+
+   .. note::
+           Time-complexity is O(N). The number of packages
+
+   :return: void
+
+
+.. function:: track_package_by_package_num()
+
+   This method ask the user for the package number (can also be referred to as the tracking number) and then asks at
+   what time during the day they would like to know where the package is. Once the user enters the information
+   the results is displayed.
+
+   The results displayed:
+
+       * package ID
+       * full delivery address
+       * package weight
+       * delivery status
+
+   :return: void
+
+

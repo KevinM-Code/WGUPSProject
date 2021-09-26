@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Packer &#8212; WGUPS Project 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Packer">
+<span id="packer"></span><h1><a class="reference internal" href="#module-Packer" title="Packer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Packer</span></code></a><a class="headerlink" href="#module-Packer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="Packer.route">
+<code class="sig-prename descclassname">Packer.</code><code class="sig-name descname">route</code><a class="headerlink" href="#Packer.route" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="Packer.timer">
+<code class="sig-prename descclassname">Packer.</code><code class="sig-name descname">timer</code><a class="headerlink" href="#Packer.timer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="Packer.Packer">
+<em class="property">class </em><code class="sig-prename descclassname">Packer.</code><code class="sig-name descname">Packer</code><a class="headerlink" href="#Packer.Packer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Packer.Packer.add_departure_timestamp_and_location_index_to_package_info">
+<code class="sig-name descname">add_departure_timestamp_and_location_index_to_package_info</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">departure_time</em>, <em class="sig-param">truck</em>, <em class="sig-param">location_names</em><span class="sig-paren">)</span><a class="headerlink" href="#Packer.Packer.add_departure_timestamp_and_location_index_to_package_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method adds the departure time of the truck and using <a class="reference internal" href="../DataImporter/index.html#DataImporter.first_7_letters_to_ascii_value" title="DataImporter.first_7_letters_to_ascii_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">DataImporter.first_7_letters_to_ascii_value()</span></code></a>
+then <a class="reference internal" href="../DataImporter/index.html#DataImporter.location_names" title="DataImporter.location_names"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DataImporter.location_names</span></code></a> instance of <a class="reference internal" href="../HashMap/index.html#module-HashMap" title="HashMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">HashMap</span></code></a>, looks up and adds the index of the destination to each
+package information for faster lookup later.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The time complexity is O(N)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>departure_time</strong> (<em>string constant</em>) – The time of departure for the package that is on the truck</p></li>
+<li><p><strong>truck</strong> (<em>list</em>) – The packages on the truck</p></li>
+<li><p><strong>location_names</strong> (<a class="reference internal" href="../HashMap/index.html#module-HashMap" title="HashMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">HashMap</span></code></a>) – The destinations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The updated list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Packer.Packer.calc_mileage_time_and_update_master_package_list">
+<code class="sig-name descname">calc_mileage_time_and_update_master_package_list</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">best_route</em>, <em class="sig-param">package_info_custom_dict</em>, <em class="sig-param">starting_location</em><span class="sig-paren">)</span><a class="headerlink" href="#Packer.Packer.calc_mileage_time_and_update_master_package_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method totals up the mileage, keeps track of the time the truck takes to each stop and puts a timestamp of
+when the package was delivered to the master package list.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The time complexity is O(N)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_route</strong> (<em>list</em>) – The best truck route produced from <a class="reference internal" href="../Router/index.html#Router.Router.get_best_route" title="Router.Router.get_best_route"><code class="xref py py-func docutils literal notranslate"><span class="pre">Router.Router.get_best_route()</span></code></a></p></li>
+<li><p><strong>package_info_custom_dict</strong> (<a class="reference internal" href="../HashMap/index.html#module-HashMap" title="HashMap"><code class="xref py py-class docutils literal notranslate"><span class="pre">HashMap</span></code></a>) – The master package list</p></li>
+<li><p><strong>starting_location</strong> (<em>int constant</em>) – the index number of the location on the list of delivery places</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The mileage the truck drove on the delivery route</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Packer</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#Packer.route">route</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Packer.timer">timer</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Packer.Packer">Packer</a><ul>
+<li><a class="reference internal" href="#Packer.Packer.add_departure_timestamp_and_location_index_to_package_info">add_departure_timestamp_and_location_index_to_package_info</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Packer.Packer.calc_mileage_time_and_update_master_package_list">calc_mileage_time_and_update_master_package_list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/Packer/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Kevin Mock.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  </body>
+</html>
