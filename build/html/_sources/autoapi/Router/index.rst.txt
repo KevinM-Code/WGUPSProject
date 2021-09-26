@@ -1,0 +1,61 @@
+:mod:`Router`
+=============
+
+.. py:module:: Router
+
+
+Module Contents
+---------------
+
+.. py:class:: Router
+
+   .. method:: total_mileage(self, row, col, total_dist)
+
+
+      This method refers to the :mod:`list` that was created from the file :download:`WGUPSDistances.csv <../../../src/CSV/WGUPSDistances.csv>`.
+      Only the lower left triangle is filled in so the method tries to find a value by row and column, if no value is found it
+      swaps the row and column values to find the distance between two locations. The method then adds the value looked up, to the :mod:`total_dist` value coming in as a parameter.
+
+      .. note::
+          This method has a time-complexity of O(1)
+
+      :param int row: The row number
+      :param int col: The column number
+      :param float total_dist: This gives the method a looping accumulating capability (the distance is returned and can come right back in)
+      :return: the mileage between the queried locations plus whatever has already been added.
+      :rtype: float
+
+
+   .. method:: find_mileage(self, row, col)
+
+
+      This method refers to the :mod:`list` that was created from the file :download:`WGUPSDistances.csv <../../../src/CSV/WGUPSDistances.csv>`.
+      Only the lower left triangle is filled in so the method tries to find a value by row and column, if no value is found it
+      swaps the row and column values to find the distance between two locations.
+
+      .. note::
+          This method has a time-complexity of O(1)
+
+      :param int row:
+      :param int col:
+      :return: The distance between deliveries
+      :rtype: float
+
+
+   .. method:: get_best_route(self, location, packages_info_onboard)
+
+
+      Here is the workhorse of the application. It takes the starting point :mod:`location` and an array of packages
+      on board :mod:`packages_info_onboard`. For every location, it finds the shortest route to the next location
+      and continues till the end of the route, attempting to reorder the packages to a shorter route. The method then returns
+      the packages and locations in the most efficient order a greedy algorithm can produce.
+
+      .. note::
+          This method has a time-complexity of O(N^2)
+
+      :param int location: starting location
+      :param list packages_info_onboard: an array of packages on board
+      :return:
+
+
+

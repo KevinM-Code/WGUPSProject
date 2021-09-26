@@ -1,0 +1,68 @@
+:mod:`HashMap`
+==============
+
+.. py:module:: HashMap
+
+
+Module Contents
+---------------
+
+.. py:class:: HashMap
+
+   This :class:`HashMap` has an insertion, deletion, and search time-complexity is O(N). However on average,
+   time-complexity is a good Θ(1).
+
+   .. method:: _calc_hash(self, key)
+
+
+      This private method takes and int and returns what bag number it will be put into.
+
+      .. note::
+          Time-complexity is O(1).
+
+      :param int key: The key value
+      :return: bag number
+      :rtype: int
+
+
+   .. method:: set(self, key, value)
+
+
+      This method sets the key-value pair in the :class:`HashMap`.
+
+      .. note::
+          This method has a time-complexity of O(N)
+         
+      :param key: ID for the value
+      :type key: int
+      :param value: A :mod:`list` of information
+      :type value: :mod:`list` or any
+
+
+   .. method:: get(self, key)
+
+
+      With the key given as a parameter, this method returns the value assigned to the key.
+
+      .. note::
+          This method has a time-complexity of O(N)
+
+      :param int key: ID for the value
+      :return: A :mod:`list` of information
+      :rtype: :mod:`list` or any
+
+
+   .. method:: remove(self, key)
+
+
+      This method removes the key value pair from the :class:`HashMap` based on the key.
+
+      .. note::
+          Time-complexity is O(N)
+
+      :param int key: ID for the value
+      :return: A :mod:`list` of information
+      :rtype: :mod:`list` or any
+
+
+

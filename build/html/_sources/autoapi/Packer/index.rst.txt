@@ -1,0 +1,59 @@
+:mod:`Packer`
+=============
+
+.. py:module:: Packer
+
+
+Module Contents
+---------------
+
+.. data:: route
+   
+
+   
+
+.. data:: timer
+   
+
+   
+
+.. py:class:: Packer
+
+   .. method:: add_departure_timestamp_and_location_index_to_package_info(self, departure_time, truck, location_names)
+
+
+      This method adds the departure time of the truck and using :func:`DataImporter.first_7_letters_to_ascii_value`
+      then :mod:`DataImporter.location_names` instance of :class:`HashMap`, looks up and adds the index of the destination to each
+      package information for faster lookup later.
+
+      .. note::
+          The time complexity is O(N)
+
+      :param departure_time: The time of departure for the package that is on the truck
+      :type departure_time: string constant
+      :param list truck: The packages on the truck
+      :param location_names: The destinations
+      :type location_names: :class:`HashMap`
+      :return: The updated list
+      :rtype: list
+
+
+   .. method:: calc_mileage_time_and_update_master_package_list(self, best_route, package_info_custom_dict, starting_location)
+
+
+      This method totals up the mileage, keeps track of the time the truck takes to each stop and puts a timestamp of
+      when the package was delivered to the master package list.
+
+      .. note::
+          The time complexity is O(N)
+
+      :param list best_route: The best truck route produced from :func:`Router.Router.get_best_route`
+      :param package_info_custom_dict: The master package list
+      :type package_info_custom_dict: :class:`HashMap`
+      :param starting_location: the index number of the location on the list of delivery places
+      :type starting_location: int constant
+      :return: The mileage the truck drove on the delivery route
+      :rtype: float
+
+
+

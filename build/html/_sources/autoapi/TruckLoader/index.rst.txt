@@ -1,0 +1,34 @@
+:mod:`TruckLoader`
+==================
+
+.. py:module:: TruckLoader
+
+
+Module Contents
+---------------
+
+.. data:: package_info_custom_dict
+   
+
+   
+
+.. data:: truck_1_driver_1
+   :annotation: = []
+
+   
+
+.. data:: truck_2_driver_2
+   :annotation: = []
+
+   
+
+.. data:: truck_3_driver_1
+   :annotation: = []
+
+   
+
+.. data:: package_data
+   
+
+   
+

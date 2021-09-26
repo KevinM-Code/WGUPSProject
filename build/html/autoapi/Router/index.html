@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Router &#8212; WGUPS Project 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Router">
+<span id="router"></span><h1><a class="reference internal" href="#module-Router" title="Router"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Router</span></code></a><a class="headerlink" href="#module-Router" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Router.Router">
+<em class="property">class </em><code class="sig-prename descclassname">Router.</code><code class="sig-name descname">Router</code><a class="headerlink" href="#Router.Router" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Router.Router.total_mileage">
+<code class="sig-name descname">total_mileage</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">row</em>, <em class="sig-param">col</em>, <em class="sig-param">total_dist</em><span class="sig-paren">)</span><a class="headerlink" href="#Router.Router.total_mileage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method refers to the <code class="xref py py-mod docutils literal notranslate"><span class="pre">list</span></code> that was created from the file <a class="reference download internal" download="" href="../../_downloads/77ff0bd2fd065a83b1d45b4fce90fb39/WGUPSDistances.csv"><code class="xref download docutils literal notranslate"><span class="pre">WGUPSDistances.csv</span></code></a>.
+Only the lower left triangle is filled in so the method tries to find a value by row and column, if no value is found it
+swaps the row and column values to find the distance between two locations. The method then adds the value looked up, to the <code class="xref py py-mod docutils literal notranslate"><span class="pre">total_dist</span></code> value coming in as a parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method has a time-complexity of O(1)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<em>int</em>) – The row number</p></li>
+<li><p><strong>col</strong> (<em>int</em>) – The column number</p></li>
+<li><p><strong>total_dist</strong> (<em>float</em>) – This gives the method a looping accumulating capability (the distance is returned and can come right back in)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the mileage between the queried locations plus whatever has already been added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Router.Router.find_mileage">
+<code class="sig-name descname">find_mileage</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">row</em>, <em class="sig-param">col</em><span class="sig-paren">)</span><a class="headerlink" href="#Router.Router.find_mileage" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method refers to the <code class="xref py py-mod docutils literal notranslate"><span class="pre">list</span></code> that was created from the file <a class="reference download internal" download="" href="../../_downloads/77ff0bd2fd065a83b1d45b4fce90fb39/WGUPSDistances.csv"><code class="xref download docutils literal notranslate"><span class="pre">WGUPSDistances.csv</span></code></a>.
+Only the lower left triangle is filled in so the method tries to find a value by row and column, if no value is found it
+swaps the row and column values to find the distance between two locations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method has a time-complexity of O(1)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<em>int</em>) – </p></li>
+<li><p><strong>col</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The distance between deliveries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Router.Router.get_best_route">
+<code class="sig-name descname">get_best_route</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">location</em>, <em class="sig-param">packages_info_onboard</em><span class="sig-paren">)</span><a class="headerlink" href="#Router.Router.get_best_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here is the workhorse of the application. It takes the starting point <code class="xref py py-mod docutils literal notranslate"><span class="pre">location</span></code> and an array of packages
+on board <code class="xref py py-mod docutils literal notranslate"><span class="pre">packages_info_onboard</span></code>. For every location, it finds the shortest route to the next location
+and continues till the end of the route, attempting to reorder the packages to a shorter route. The method then returns
+the packages and locations in the most efficient order a greedy algorithm can produce.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method has a time-complexity of O(N^2)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location</strong> (<em>int</em>) – starting location</p></li>
+<li><p><strong>packages_info_onboard</strong> (<em>list</em>) – an array of packages on board</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Router</span></code></a><ul>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#Router.Router">Router</a><ul>
+<li><a class="reference internal" href="#Router.Router.total_mileage">total_mileage</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Router.Router.find_mileage">find_mileage</a></li>
+</ul>
+<ul>
+<li><a class="reference internal" href="#Router.Router.get_best_route">get_best_route</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/Router/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">WGUPS Project 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Kevin Mock.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  </body>
+</html>
